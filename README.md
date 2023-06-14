@@ -26,11 +26,48 @@ Where $F,A,J_{a, b}$ are known quantum coefficients, and $I_{a,b}$ are the inten
 | P1(2)  | -45.170339 | 8399 | 1.5 | 0.434 |5      |
 | P1(4)  | 113.752553 | 8465 | 3.5 | 0.579 |6      |
 
+## Examples
+```
+# Run the script including all the functions (current iteration in .ipynb format so just open the file and run in Jupyter Notebook or another appropriate editor)
+
+import glob
+
+# Get the files from the CH5 and CH6 folders (typical format for UNIS Allsky Airglow Camera data)
+Channel5files = glob('filepath/CH5/*.img')
+Channel6files = glob('filepath/CH6/*.img')
+
+# Use get_image_pairs to match up the images in time
+image_pairs = get_image_pairs(Channel5files, Channel6files)
+
+# To get the time from a specific image file as datetime obj
+fname = Channel5files[0]  # For example
+time = time_fname[fname]
+
+# To read an image file
+header, image = read_img_file(fname)
+
+# To get the dark value from the corner of the image
+darkvalue = corner_dark(image)
+
+# To get the calibrated image file (using the corner dark)
+calibrated_img = calibrated(image)
+
+# To get the cleaned up version an image or map
+cleaned = cleanup_map(image)
+
+# To retrieve a list of all the temperature maps for a folder or some of a folder
+tempmaps = get_tempmaps(Channel5files, Channel6files, len(Channel5files))
+# or
+tempmaps = get_tempmaps(Channel5files, Channel6files, 10)
+# To get the first 10 temperature maps
+
+# To produce a keogram from a folder or some of a folder (as above)
+timestamps, keogram = get_keogram(Channel5files, Channel6files, len(Channel5files))
+```
+
 ## References and links
 
 [UNIS Allsky Airglow Camera](http://kho.unis.no/Instruments/KeoSentry.html)
-
-
 
 https://pypi.org/project/oh-einstein-temp-convert/
 
