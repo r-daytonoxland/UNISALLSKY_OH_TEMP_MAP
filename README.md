@@ -22,11 +22,10 @@ Pull requests are welcome, for major changes please open an issue first to discu
 
 ## Algorithm
 
-- Read in images from UNIS Allsky airglow camera
-- Calibrate images against background sky, flat field, darks etc.
-- Interpolate images so they're simultaneous
+- Read in images (.img format) from UNIS Allsky airglow camera
+- Calibrate images by using the corner (dark) values
 - Calculate the rotational temperature from the P1(2) P1(4) line ratios (Channels 5 and 6 of the camera)
-- Project the temperature map from All-Sky to over Svalbard
+- Create temperature keograms
 
 Temperatures are calculated according to the equation
 
@@ -84,6 +83,10 @@ tempmaps = get_tempmaps(Channel5files, Channel6files, 10)
 # To produce a keogram from a folder or some of a folder (as above)
 timestamps, keogram = get_keogram(Channel5files, Channel6files, len(Channel5files))
 ```
+
+## Limitations
+
+The calibration of the Airglow camera (true darks, flat fields) is not done so temperature estimates are not accurate - when compared with the 'true' value from the SilverBullet, NIPR and Aura cameras, this code gave 100K higher temperatures. However, it gives a picture of temperature _variations_ which can be useful to detect e.g. pressure waves which will be visible in the keograms.
 
 ## References and links
 
