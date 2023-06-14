@@ -4,6 +4,21 @@ This software reads in images from UNIS' Allsky Airglow camera and produces a ma
 
 ### Author
 Rowan Dayton-Oxland
+[University of Southampton](https://www.southampton.ac.uk/people/5z2prx/miss-rowan-dayton-oxland)
+[Github](https://github.com/r-daytonoxland)
+
+## Installation
+
+Download or pull from Github
+
+## Requirements
+- Python >= 3.10
+- .ipynb capabilites e.g. Jupyter Notebook, Visual Studio code
+- OS independent
+- numpy, pandas, matplotlib, pathlib, struct, glob, datetime
+
+## Contributing
+Pull requests are welcome, for major changes please open an issue first to discuss what you would like to change.
 
 ## Algorithm
 
@@ -15,7 +30,9 @@ Rowan Dayton-Oxland
 
 Temperatures are calculated according to the equation
 
-$ T_{rot} = \frac{\frac{hc}{k} (F_b - F_a)}{ln(\frac{I_{a} A_{b} (2J_{b} + 1)}{I_{b} A_{a} (2J_{a} + 1)})}$
+$$
+T_{rot} = \frac{\frac{hc}{k} (F_b - F_a)}{ln(\frac{I_{a} A_{b} (2J_{b} + 1)}{I_{b} A_{a} (2J_{a} + 1)})}
+$$
 
 Where $F,A,J_{a, b}$ are known quantum coefficients, and $I_{a,b}$ are the intensities of the lines in each pixel.
 
@@ -81,3 +98,7 @@ https://pypi.org/project/oh-einstein-temp-convert/
 ## Acknowledgements
 
 Noora Partamies, Mikko Syrjasuo, James Plank
+
+## License
+
+[GNU GPLv3.0](https://choosealicense.com/licenses/gpl-3.0/)
