@@ -28,7 +28,10 @@ Where $F,A,J_{a, b}$ are known quantum coefficients, and $I_{a,b}$ are the inten
 
 ## Examples
 ```
-# Run the script including all the functions (current iteration in .ipynb format so just open the file and run in Jupyter Notebook or another appropriate editor)
+# Run the script including all the functions
+# Current iteration in .ipynb format so
+# open the file and run in Jupyter Notebook
+# or another appropriate editor
 
 import glob
 
