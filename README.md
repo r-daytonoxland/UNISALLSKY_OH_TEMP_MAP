@@ -43,12 +43,12 @@ Where $F,A,J_{a, b}$ are known quantum coefficients, and $I_{a,b}$ are the inten
 | P1(4)  | 113.752553 | 8465 | 3.5 | 0.579 |6      |
 
 ## Examples
-```
-# Run the script including all the functions
-# Current iteration in .ipynb format so
-# open the file and run in Jupyter Notebook
-# or another appropriate editor
 
+Run the script including all the functions. Current iteration in .ipynb format sonopen the file and run in Jupyter Notebook or another appropriate editor.
+
+Notebook contains examples of generating a single temperature map and a keogram.
+
+```
 import glob
 
 # Get the files from the CH5 and CH6 folders (typical format for UNIS Allsky Airglow Camera data)
@@ -70,6 +70,10 @@ darkvalue = corner_dark(image)
 
 # To get the calibrated image file (using the corner dark)
 calibrated_img = calibrated(image)
+
+# To get a temperature map from a ch5 image and a ch6 image (calibrate first)
+  # Example for first pair of images
+temp_map = temperature_map(image_pairs[0][0], image_pairs[0][1]) 
 
 # To get the cleaned up version an image or map
 cleaned = cleanup_map(image)
@@ -97,6 +101,10 @@ https://pypi.org/project/oh-einstein-temp-convert/
 [Holmen, S., Trends and variability of polar mesopause region temperatures attributed to atmospheric dynamics and solar activity, PhD Thesis, UiT The Arctic University of Norway, 2016.](https://hdl.handle.net/10037/10740)
 
 [Mark P. J. van der Loo, Gerrit C. Groenenboom (2008) Theoretical transition probabilities for the OH Meinel system. J. Chem. Phys. 21 March 2007; 126 (11): 114314.](https://doi.org/10.1063/1.2646859)
+
+## Data
+
+This code is for image data for UNIS Allsky Airglow Camera, for access to the camera data, the contacts are listed [here](http://kho.unis.no/Instruments/KeoSentry.html).
 
 ## Acknowledgements
 
